@@ -8,11 +8,11 @@
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;900&display=swap');
 
         :root {
-            --bg-color: #050505;
-            --text-main: #f0f0f0;
-            --text-muted: #888888;
-            --accent: #ffffff;
-            --border-color: #333333;
+            --bg-color: #f4f4f5;
+            --text-main: #18181b;
+            --text-muted: #52525b;
+            --accent: #09090b;
+            --border-color: #e4e4e7;
         }
 
         * {
@@ -37,13 +37,15 @@
             border: 1px solid var(--border-color);
             display: grid;
             grid-template-columns: 1fr 2.5fr;
-            background: #0a0a0a;
+            background: #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
         }
 
         /* Тонкие линии между блоками */
         aside {
             border-right: 1px solid var(--border-color);
             padding: 50px 40px;
+            background: #fafafa;
         }
 
         main {
@@ -125,8 +127,8 @@
 
         .text-content {
             font-size: 1.05rem;
-            font-weight: 300;
-            color: #d0d0d0;
+            font-weight: 400;
+            color: var(--text-main);
             margin-bottom: 30px;
             text-align: justify;
         }
@@ -166,8 +168,10 @@
             font-size: 0.75rem;
             padding: 4px 10px;
             border: 1px solid var(--border-color);
-            color: var(--text-muted);
+            color: var(--text-main);
+            background-color: #f4f4f5;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         /* Адаптивность */
