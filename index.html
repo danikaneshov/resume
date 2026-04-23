@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Резюме | Анешов Данияр</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;900&display=swap');
+
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --bg-color: #f4f7f6;
-            --white: #ffffff;
+            --bg-color: #050505;
+            --text-main: #f0f0f0;
+            --text-muted: #888888;
+            --accent: #ffffff;
+            --border-color: #333333;
         }
 
         * {
@@ -20,238 +22,287 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
             padding: 40px 20px;
-        }
-
-        .resume-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--white);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            min-height: 1000px;
-        }
-
-        /* Левая колонка */
-        .sidebar {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 40px 30px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            margin: 0 auto 20px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 60px;
-            font-weight: bold;
         }
 
-        .sidebar h2 {
-            font-size: 1.2rem;
+        .resume-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            background: #0a0a0a;
+        }
+
+        /* Тонкие линии между блоками */
+        aside {
+            border-right: 1px solid var(--border-color);
+            padding: 50px 40px;
+        }
+
+        main {
+            padding: 50px 60px;
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: 3.5rem;
+            line-height: 1;
             text-transform: uppercase;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-top: 30px;
+            letter-spacing: -1.5px;
+            margin-bottom: 10px;
+            color: var(--accent);
         }
 
-        .sidebar ul {
+        .role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Сайдбар */
+        .contact-block, .skills-block {
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .skills-list {
             list-style: none;
         }
 
-        .sidebar ul li {
+        .skills-list li {
             margin-bottom: 10px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
         }
 
-        .contact-info p {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+        .skills-list li::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            margin-right: 15px;
         }
 
-        /* Правая колонка */
-        .main-content {
-            padding: 50px;
+        /* Основной контент */
+        .section-block {
+            margin-bottom: 50px;
         }
 
-        header {
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            line-height: 1.1;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        section {
-            margin-bottom: 35px;
-        }
-
-        h3 {
-            color: var(--primary-color);
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-        }
-
-        .project, .job, .education {
-            margin-bottom: 20px;
-        }
-
-        .item-title {
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            color: #222;
-        }
-
-        .item-subtitle {
-            font-style: italic;
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-        }
-
-        .description {
-            font-size: 0.95rem;
+        .text-content {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: #d0d0d0;
+            margin-bottom: 30px;
             text-align: justify;
         }
 
-        .tags {
+        .item {
+            margin-bottom: 35px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .item-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 10px;
+            margin-top: 15px;
         }
 
-        .tag {
-            background: #e1e8ed;
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            color: var(--primary-color);
+        .tech-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            text-transform: uppercase;
         }
 
-        @media (max-width: 768px) {
-            .resume-container {
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .resume-wrapper {
                 grid-template-columns: 1fr;
             }
-            .sidebar {
-                padding: 30px;
+            aside {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+            .item-meta {
+                margin-top: 5px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="resume-container">
-    <aside class="sidebar">
-        <div class="profile-img">Д</div>
-        
-        <h2>Контакты</h2>
-        <div class="contact-info">
-            <p>📍 Астана, Казахстан</p>
-            <p>📧 daniyar@example.com</p>
-            <p>📱 +7 (XXX) XXX-XX-XX</p>
+<div class="resume-wrapper">
+    <aside>
+        <div class="contact-block">
+            <h2>Контакты</h2>
+            <div class="contact-item">
+                <span>Телефон</span>
+                +7 705 290 61 91
+            </div>
+            <div class="contact-item">
+                <span>Email</span>
+                danik.aneshov@gmail.com
+            </div>
+            <div class="contact-item">
+                <span>Локация</span>
+                Астана, Казахстан
+            </div>
         </div>
 
-        <h2>Навыки</h2>
-        <ul>
-            <li>Python (Backend / Scripting)</li>
-            <li>SQL (PostgreSQL / MySQL)</li>
-            <li>HTML5 / CSS3</li>
-            <li>Firebase Integration</li>
-            <li>PWA Development</li>
-            <li>Git / GitHub</li>
-        </ul>
+        <div class="skills-block">
+            <h2>Hard Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>SQL</li>
+                <li>HTML / CSS</li>
+                <li>Firebase</li>
+                <li>PWA Development</li>
+                <li>Git</li>
+            </ul>
+        </div>
 
-        <h2>Личные качества</h2>
-        <ul>
-            <li>Оптимизация и автоматизация</li>
-            <li>Нестандартное мышление</li>
-            <li>Hardware & Software Setup</li>
-            <li>Коммуникабельность</li>
-        </ul>
+        <div class="skills-block">
+            <h2>Soft Skills</h2>
+            <ul class="skills-list">
+                <li>Автоматизация процессов</li>
+                <li>Нестандартные решения</li>
+                <li>Hardware & Software Setup</li>
+                <li>Кризисные коммуникации</li>
+            </ul>
+        </div>
     </aside>
 
-    <main class="main-content">
+    <main>
         <header>
-            <h1>Анешов Данияр Шалкарович</h1>
-            <p>Data Analytics Student | Junior Developer</p>
+            <h1>Анешов<br>Данияр</h1>
+            <span class="role">> Data Analytics Student / Junior Developer</span>
         </header>
 
-        <section>
-            <h3>О себе</h3>
-            <p class="description">
-                Мне 19 лет, студент 2-го курса по направлению «Аналитика баз данных». Совмещаю глубокий интерес к технологиям с практическим опытом в сфере обслуживания. Мой подход — это автоматизация рутины и поиск элегантных, нестандартных решений для сложных задач. Прекрасно разбираюсь как в программной части, так и в «железе».
+        <section class="section-block">
+            <h2>Профиль</h2>
+            <p class="text-content">
+                Мне 19 лет, студент 2-го курса по специальности «Аналитика баз данных». Специализируюсь на поиске нестандартных методов решения задач, алгоритмизации и тотальной оптимизации рутинных процессов. Сочетаю уверенное владение стеком разработки (Python, SQL, веб-технологии) с глубоким пониманием аппаратного и прикладного обеспечения ПК.
             </p>
         </section>
 
-        <section>
-            <h3>Проекты</h3>
-            <div class="project">
-                <div class="item-title">vKasanie — Аренда и доставка</div>
-                <div class="item-subtitle">Full-stack PWA проект</div>
-                <p class="description">
-                    Разработал полноценное Progressive Web App для сервиса аренды кальянов. Реализовал интерфейс, логику заказов и обеспечил возможность установки приложения на смартфон.
+        <section class="section-block">
+            <h2>Проекты</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">vKasanie</div>
+                    <div class="item-meta">Full-stack PWA</div>
+                </div>
+                <p class="text-content" style="margin-bottom: 0;">
+                    Самостоятельная разработка полноценного прогрессивного веб-приложения (PWA) для сервиса аренды кальянов. Реализация пользовательского интерфейса, логики взаимодействия с клиентом и интеграция офлайн-доступа.
                 </p>
-                <div class="tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">PWA</span>
-                    <span class="tag">Firebase</span>
+                <div class="tech-stack">
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">PWA</span>
+                    <span class="tech-badge">Firebase</span>
                 </div>
             </div>
 
-            <div class="project">
-                <div class="item-title">Car Wash Platform (Astana)</div>
-                <div class="item-subtitle">Концепт подписки по модели 1Fit</div>
-                <p class="description">
-                    Проектирование системы бронирования и управления подписками на мойку авто. Работа с базами данных и логикой слотов.
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Автомойки по подписке</div>
+                    <div class="item-meta">Концепт / MVP</div>
+                </div>
+                <p class="text-content" style="margin-bottom: 0;">
+                    Разработка архитектуры и прототипа платформы для бронирования слотов на автомойках по модели ежемесячной подписки (аналог 1Fit). Фокус на проектировании структуры базы данных.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">Database Design</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2>Опыт</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Сфера обслуживания (Общепит)</div>
+                    <div class="item-meta">Бармен</div>
+                </div>
+                <p class="text-content">
+                    Работа в условиях высокой нагрузки. Развитие навыков стрессоустойчивости, быстрой адаптации и эффективной коммуникации с клиентами и командой.
                 </p>
             </div>
         </section>
 
-        <section>
-            <h3>Опыт работы</h3>
-            <div class="job">
-                <div class="item-title">Сфера общественного питания</div>
-                <div class="item-subtitle">Бармен / Сервис</div>
-                <p class="description">
-                    Развил навыки эффективной коммуникации и работы в команде. Научился быстро принимать решения в стрессовых ситуациях и работать с запросами клиентов разного уровня сложности.
+        <section class="section-block">
+            <h2>Образование</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Высшее образование (Астана)</div>
+                    <div class="item-meta">2024 — Настоящее время</div>
+                </div>
+                <p class="text-content">
+                    Специальность: Аналитика баз данных (2 курс). Изучение алгоритмов, структур данных, проектирования БД и аналитических инструментов.
                 </p>
-            </div>
-        </section>
-
-        <section>
-            <h3>Образование</h3>
-            <div class="education">
-                <div class="item-title">Университет (Астана)</div>
-                <div class="item-subtitle">Аналитика баз данных, 2 курс (2024 — н.в.)</div>
-                <p class="description">Изучение структур данных, проектирования сложных БД и основ системного анализа.</p>
             </div>
         </section>
     </main>
